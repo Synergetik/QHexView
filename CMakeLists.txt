@@ -25,10 +25,17 @@ set_target_properties(${PROJECT_NAME}
         AUTOMOC ON
 )
 
-target_link_libraries(${PROJECT_NAME}
-    PUBLIC
-        Qt::Widgets
-)
+if(QHEXVIEW_USE_QT5)
+    target_link_libraries(${PROJECT_NAME}
+        PUBLIC
+            Qt5::Widgets
+    )
+else()
+    target_link_libraries(${PROJECT_NAME}
+        PUBLIC
+            Qt::Widgets
+    )
+endif()
 
 target_include_directories(${PROJECT_NAME}
     PUBLIC
